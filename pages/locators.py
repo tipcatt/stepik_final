@@ -3,9 +3,16 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    VIEW_BASKET = (By.CSS_SELECTOR, ".basket-mini.pull-right.hidden-xs>span>a")
+
+class BasketPageLocators():
+    BASKET_TOTAL = (By.CSS_SELECTOR, "tr:nth-child(2)>th.total.align-right")
+    ITEMS_TO_BUY = (By.CSS_SELECTOR, ".col-sm-6.h3")
+    MSG_EMPTY_BASKET = (By.XPATH, "//*[@id='content_inner']/p")
+
 
 class MainPageLocators():
-    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    pass
 
 class LoginPageLocators:
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
