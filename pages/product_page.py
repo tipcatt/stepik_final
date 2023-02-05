@@ -1,5 +1,3 @@
-import time
-
 from .base_page import BasePage
 from .locators import ProductPageLocators
 
@@ -22,3 +20,11 @@ class ProductPage(BasePage):
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
         basket_price = self.browser.find_element(*ProductPageLocators.PURCHASE_PRICE).text
         assert basket_price == product_price, "Basket price is different with product price"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.PURCHASE_NAME), \
+            "Success message is presented, but should not be"
+
+    def should_disappeared_success_message(self):
+        assert self.is_disappeared(*ProductPageLocators.PURCHASE_NAME), \
+            "Success message is not disappeared, but should be"
